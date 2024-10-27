@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link rel="stylesheet" href="profile_avance.css">
+</head>
+<body>
+    <h1>Saad Hammou</h1>
+
+    <section id="a-propos">
+        <img src="image.png" alt="Ma photo de profil (par défaut) GitHub." width="80" height="80">
+        <h2>À propos de moi:</h2>
+        <p>Je suis un étudiant en troisième année IIR à l'EMSI. Mes intérêts dans le domaine de l'informatique sont: la programmation en Python, le développement web en utilisant JavaScript, et le développement des applications.</p>
+    </section>
+    
+    <section id="hob-obj">
+        <h2>Hobbies et Objectifs:</h2>
+        <ul>
+            <li>Programmation</li>
+            <li>Lecture</li>
+            <li>Apprentissage de langues</li>
+        </ul>
+
+        <ol>
+            <li>Maîtriser la programmation en C++</li>
+            <li>Apprendre comment créer des sites web interactifs</li>
+            <li>Me familiariser avec le système d'exploitation Linux.</li>
+        </ol>
+    </section>
+    
+    <section id="tab-am">
+        <h2>Mes collègues:</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Âge</th>
+                    <th>Ville</th>
+                    <th>Lien</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Ilyas Bendaou</td>
+                    <td>20</td>
+                    <td>Casablanca</td>
+                    <td><a href="https://github.com/SayliDRay">GitHub</a></td>
+                </tr>
+                <tr>
+                    <td>Taha Boudane</td>
+                    <td>20</td>
+                    <td>Casablanca</td>
+                    <td><a href="https://ma.linkedin.com/in/taha-boudane-5001b4270">LinkedIn</a></td>
+                </tr>
+                <tr>
+                    <td>Yassine Benelgada</td>
+                    <td>23</td>
+                    <td>Casablanca</td>
+                    <td>N/A</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="form-cont">
+        <h2>Contactez-moi:</h2>
+        <form>
+            <label for="nom">Votre nom:</label>
+            <input type="text" id="nom"><br><br>
+
+            <label for="courriel">Courriel:</label>
+            <input type="email" id="courriel"><br><br>
+
+            <label for="message">Votre message:</label><br>
+            <textarea id="message"></textarea><br><br>
+
+            <button type="submit" onclick="validerFormulaire()">Envoyer!</button>
+        </form>
+
+        <script>
+            function validerFormulaire() {
+                const nomSaisi = document.getElementById('nom').value;
+                const courrielSaisi = document.getElementById('courriel').value;
+                const messageSaisi = document.getElementById('message').value;
+                
+                const expRegValidationCourriel = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+                if (!nomSaisi) {
+                    alert("ERREUR! Vous devez renseigner votre nom!");
+                    return false;
+                } else if (!courrielSaisi || !expRegValidationCourriel.test(courrielSaisi)) {
+                    alert("ERREUR! Vérifiez que vous avez bien écrit votre adresse e-mail!");
+                    return false;
+                } else if (!messageSaisi) {
+                    alert("ERREUR! Vous n'avez pas écrit de message!");
+                    return false;
+                }
+                
+                alert("Votre message a été envoyé! Je me mettrai en contact avec vous aussitôt que possible.");
+                return true;
+            }
+        </script>
+    </section>
+</body>
+</html>
